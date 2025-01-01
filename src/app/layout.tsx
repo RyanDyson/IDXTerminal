@@ -1,6 +1,7 @@
 import "~/styles/globals.css";
 import { DM_Sans } from "next/font/google";
 import { type Metadata } from "next";
+import { Navbar } from "./_components/Navbar";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -21,7 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={dm.style}>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <TRPCReactProvider>
+          <Navbar />
+          {children}
+        </TRPCReactProvider>
       </body>
     </html>
   );
