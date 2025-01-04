@@ -1,6 +1,9 @@
 import React from "react";
 import { Lora } from "next/font/google";
-import { NextFontWithVariable, NextFont } from "next/dist/compiled/@next/font";
+import {
+  type NextFontWithVariable,
+  type NextFont,
+} from "next/dist/compiled/@next/font";
 
 interface displayProps extends React.HTMLProps<HTMLDivElement> {
   font?: NextFont | NextFontWithVariable;

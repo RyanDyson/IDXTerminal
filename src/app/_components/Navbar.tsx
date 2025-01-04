@@ -1,10 +1,9 @@
-import { DisplayFont } from "./DisplayFont";
 import { Button } from "~/components/ui/button";
 import Link from "next/link";
 
 const heroNav = [
-  { label: "Product", href: "/" },
-  { label: "Features", href: "/" },
+  { label: "Product", href: "/#Product" },
+  { label: "Features", href: "/#Features" },
   { label: "Pricing", href: "/" },
   { label: "About", href: "/" },
 ];

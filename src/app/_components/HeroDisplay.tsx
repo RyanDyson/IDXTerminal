@@ -1,5 +1,6 @@
 import { DisplayFont } from "./DisplayFont";
 import { MacbookScroll } from "~/components/ui/macbook-scroll";
+import { Spotlight } from "~/components/ui/spotlight";
 import { Button } from "~/components/ui/button";
 
 const DisplayText = () => {
@@ -22,8 +23,18 @@ const DisplayText = () => {
 
 export const HeroDisplay = () => {
   return (
-    <div className="h-max w-screen overflow-x-hidden overflow-y-hidden">
-      <MacbookScroll title={<DisplayText />} />
+    <div
+      id="Product"
+      className="bg-grid-white/[0.02] relative h-max w-screen overflow-hidden bg-stone-950/[0.96] antialiased"
+    >
+      <Spotlight
+        className="-top-40 left-0 md:-top-20 md:left-60"
+        fill="white"
+      />
+      <div className="relative z-30">
+        <MacbookScroll title={<DisplayText />} src={""} />
+      </div>
+      <div className="absolute bottom-0 z-40 h-64 w-screen bg-gradient-to-b from-transparent to-stone-950/100" />
     </div>
   );
 };

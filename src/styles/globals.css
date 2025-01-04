@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 20 14.3% 4.1%;
@@ -53,14 +53,70 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .cards:hover > .card::after {
+    opacity: 80%;
+  }
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card::before,
+  .card::after {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+  }
+
+  .card::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(132, 124, 102, 0.06),
+      transparent 40%
+    );
+    z-index: 3;
+  }
+
+  .card::after {
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(222, 213, 200, 0.4),
+      transparent 40%
+    );
+    z-index: 1;
+  }
+  .card > .card-content {
+    border-radius: inherit;
+    flex-grow: 1;
+    inset: 1px;
+    position: absolute;
+    z-index: 2;
   }
 }

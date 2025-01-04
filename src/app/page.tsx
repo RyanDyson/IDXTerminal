@@ -1,16 +1,16 @@
-import { api, HydrateClient } from "~/trpc/server";
+import { HydrateClient } from "~/trpc/server";
 import { HeroDisplay } from "./_components/HeroDisplay";
+import { FeatureCard } from "~/components/ui/FeatureCard";
+import { Pricing } from "./_components/Pricing";
 import { Footer } from "./_components/Footer";
 
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
-  void api.post.getLatest.prefetch();
-
   return (
     <HydrateClient>
-      <main className="w-screen bg-gradient-to-b from-stone-950 to-stone-800 text-white">
+      <main className="w-screen gap-0 bg-stone-950 text-white">
         <HeroDisplay />
+        <FeatureCard />
+        <Pricing />
         <Footer />
       </main>
     </HydrateClient>
