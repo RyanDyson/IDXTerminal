@@ -1,5 +1,8 @@
 import { Button } from "~/components/ui/button";
+import { Login } from "./Login";
+import { Demo } from "./Demo";
 import Link from "next/link";
+import { motion, useScroll } from "framer-motion";
 
 const heroNav = [
   { label: "Product", href: "/#Product" },
@@ -24,19 +27,9 @@ export const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="jusitfy-between m-0 flex h-full space-x-2">
-          <Button
-            className="ms-8 mt-0 rounded-full px-4 py-2 font-bold"
-            variant="secondary"
-          >
-            Request a demo
-          </Button>
-          <Button
-            className="ms-8 mt-0 rounded-full px-4 py-2 font-bold"
-            variant="secondary"
-          >
-            Login
-          </Button>
+        <div className="jusitfy-between m-0 flex h-full space-x-2 ps-8">
+          <Demo />
+          <Login />
         </div>
       </div>
     </div>

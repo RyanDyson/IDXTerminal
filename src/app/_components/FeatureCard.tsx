@@ -1,37 +1,16 @@
 "use client";
 
 import { DisplayFont } from "~/app/_components/DisplayFont";
-import { IoCompassOutline, IoLockClosed } from "react-icons/io5";
-import { TbMessageCircle } from "react-icons/tb";
-import { CustomCard } from "./CustomCard";
-
+import {
+  IoNewspaper,
+  IoColorPalette,
+  IoPodium,
+  IoApps,
+  IoChatbox,
+  IoAnalytics,
+} from "react-icons/io5";
+import { CustomCard } from "~/components/ui/CustomCard";
 import { useRef, useEffect } from "react";
-
-type featuresItemProps = {
-  title: string;
-  icon: React.ReactNode;
-  label: string;
-  image?: string;
-  cursorPosition?: { x: number; y: number };
-};
-
-const FeaturesItem = ({ title, icon, label, image }: featuresItemProps) => {
-  const imageSrc = image ?? { background: `bg-url(${image})` };
-
-  return (
-    <div className="card w-full items-end lg:h-[250px] lg:w-[300px]">
-      <div className="card-content flex flex-row items-end justify-between space-x-2 bg-stone-900 p-8 text-stone-50">
-        <div>
-          <DisplayFont className="text-2xl font-bold text-white">
-            {title}
-          </DisplayFont>
-          <p className="text-white">{label}</p>
-        </div>
-        {icon}
-      </div>
-    </div>
-  );
-};
 
 export function FeatureCard() {
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -65,34 +44,34 @@ export function FeatureCard() {
 
   const featuresList = [
     {
-      icon: <IoCompassOutline size={30} className="stroke-stone-400" />,
+      icon: <IoNewspaper size={30} className="stroke-stone-400" />,
       title: "Keep Up",
       label: "with the latest news",
     },
     {
-      icon: <IoLockClosed size={30} className="text-stone-400" />,
+      icon: <IoColorPalette size={30} className="text-stone-50" />,
       title: "Customize",
       label: "your own stock dashboard",
     },
     {
-      icon: <TbMessageCircle size={30} className="text-stone-400" />,
+      icon: <IoApps size={30} className="text-stone-50" />,
       title: "Seamless",
       label: "Intergration with other apps, like TradingView",
     },
     {
-      icon: <IoCompassOutline size={30} className="stroke-stone-400" />,
-      title: "Keep Up",
-      label: "with the latest news",
+      icon: <IoPodium size={30} className="stroke-stone-400" />,
+      title: "Accurate",
+      label: "real-time stock market data",
     },
     {
-      icon: <IoLockClosed size={30} className="text-stone-400" />,
-      title: "Customize",
-      label: "your own stock dashboard",
+      icon: <IoChatbox size={30} className="text-stone-50" />,
+      title: "Connect",
+      label: "With other traders",
     },
     {
-      icon: <TbMessageCircle size={30} className="text-stone-400" />,
-      title: "Seamless",
-      label: "voice & video chats",
+      icon: <IoAnalytics size={30} className="text-stone-50" />,
+      title: "Analyse",
+      label: "with our cutting-edge AI and powertools",
     },
   ];
 
@@ -106,10 +85,10 @@ export function FeatureCard() {
       </DisplayFont>
       <div
         ref={cardsRef}
-        className="cards flex w-full max-w-[916px] flex-col flex-wrap items-center justify-center gap-1 rounded-xl bg-stone-900 p-1 md:flex-row"
+        className="cards flex w-fit max-w-[916px] flex-col flex-wrap items-center justify-center gap-1 rounded-xl bg-stone-900 p-1 md:flex-row"
       >
         {featuresList.map((feature, index) => (
-          <FeaturesItem key={index} {...feature} />
+          <CustomCard key={index} {...feature} />
         ))}
       </div>
     </div>

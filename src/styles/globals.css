@@ -98,7 +98,7 @@
   .card::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y),
-      rgba(132, 124, 102, 0.06),
+      rgba(132, 124, 102, 0.2),
       transparent 40%
     );
     z-index: 3;
