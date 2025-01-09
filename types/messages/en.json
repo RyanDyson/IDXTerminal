@@ -1,0 +1,41 @@
+{
+  "LandingPage": {
+    "title": "IDXTerminal",
+    "subtitle": "The most advanced terminal for trading in the Indonesian stock exchange",
+    "cta": "Start for free"
+  },
+  "Features": {
+    "one": {
+      "title": "Keep Up",
+      "description": "with the latest news in the Indonesian stock exchange"
+    },
+    "two": {
+      "title": "Customize",
+      "description": "your own stock dashboard"
+    },
+    "three": {
+      "title": "Seamless",
+      "description": "intergration with other apps, like TradingView"
+    },
+    "four": {
+      "title": "Automate",
+      "description": "Automate your trades and save time"
+    },
+    "five": {
+      "title": "Secure",
+      "description": "Your data is safe with us"
+    },
+    "six": {
+      "title": "Support",
+      "description": "We are here to help you"
+    }
+  },
+  "Navigation": {
+    "product": "Product",
+    "features": "Features",
+    "pricing": "Pricing",
+    "about": "About",
+    "demo": "Request a Demo",
+    "login": "Login"
+  }
+}
