@@ -1,5 +1,5 @@
 import React from "react";
-import { Lora } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 import {
   type NextFontWithVariable,
   type NextFont,
@@ -7,15 +7,17 @@ import {
 
 interface displayProps extends React.HTMLProps<HTMLDivElement> {
   font?: NextFont | NextFontWithVariable;
+  italic?: boolean;
 }
-const lora = Lora({
+const ist = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
+  style: ["normal", "italic"],
 });
 
 export function DisplayFont(props: displayProps) {
   return (
-    <div style={lora.style} {...props}>
+    <div style={ist.style} {...props}>
       {props.children}
     </div>
   );

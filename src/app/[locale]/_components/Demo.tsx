@@ -10,12 +10,13 @@ import {
 import { Button } from "~/components/ui/button";
 import { DisplayFont } from "./DisplayFont";
 import { Input } from "~/components/ui/input";
+import { useTranslations } from "next-intl";
 
 const DemoButton = () => {
   return (
-    <Button className="rounded-full px-4 py-2 font-bold" variant="secondary">
+    <div className="rounded-full bg-stone-50 px-4 py-2 text-sm font-bold text-stone-950 transition-colors hover:bg-stone-200 active:bg-stone-400">
       Request a Demo
-    </Button>
+    </div>
   );
 };
 
@@ -25,7 +26,7 @@ export const Demo = () => {
       <DialogTrigger>
         <DemoButton />
       </DialogTrigger>
-      <DialogContent className="flex flex-col justify-between space-y-1 divide-y-2 divide-stone-700 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-md">
+      <DialogContent className="flex flex-col justify-between space-y-1 divide-y-2 divide-stone-700 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-lg">
         <DialogHeader>
           <DialogTitle>
             <DisplayFont className="text-3xl">Demo Request</DisplayFont>

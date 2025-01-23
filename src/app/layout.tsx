@@ -1,32 +1,12 @@
+import { ReactNode } from "react";
 import "~/styles/globals.css";
-import { DM_Sans } from "next/font/google";
-import { type Metadata } from "next";
-import { Navbar } from "./_components/Navbar";
 
-import { TRPCReactProvider } from "~/trpc/react";
-
-export const metadata: Metadata = {
-  title: "IDXTerminal",
-  description: "Indonesia's premiere stock exchange terminal",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+type Props = {
+  children: ReactNode;
 };
 
-const dm = DM_Sans({
-  subsets: ["latin"],
-  weight: "400",
-});
-
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body style={dm.style}>
-        <TRPCReactProvider>
-          <Navbar />
-          {children}
-        </TRPCReactProvider>
-      </body>
-    </html>
-  );
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({ children }: Props) {
+  return children;
 }

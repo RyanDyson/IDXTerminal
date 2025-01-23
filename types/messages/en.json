@@ -1,35 +1,4 @@
 {
-  "LandingPage": {
-    "title": "IDXTerminal",
-    "subtitle": "The most advanced terminal for trading in the Indonesian stock exchange",
-    "cta": "Start for free"
-  },
-  "Features": {
-    "one": {
-      "title": "Keep Up",
-      "description": "with the latest news in the Indonesian stock exchange"
-    },
-    "two": {
-      "title": "Customize",
-      "description": "your own stock dashboard"
-    },
-    "three": {
-      "title": "Seamless",
-      "description": "intergration with other apps, like TradingView"
-    },
-    "four": {
-      "title": "Automate",
-      "description": "Automate your trades and save time"
-    },
-    "five": {
-      "title": "Secure",
-      "description": "Your data is safe with us"
-    },
-    "six": {
-      "title": "Support",
-      "description": "We are here to help you"
-    }
-  },
   "Navigation": {
     "product": "Product",
     "features": "Features",
@@ -37,5 +6,88 @@
     "about": "About",
     "demo": "Request a Demo",
     "login": "Login"
+  },
+  "Hero": {
+    "title": "IDXTerminal",
+    "subtitle": "Indonesia's Premier AI-powered Trading Terminal",
+    "cta": "Start for free"
+  },
+  "Footer": {
+    "title": "IDXTerminal",
+    "copyright": "© 2023 IDXTerminal. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contactUs": "Contact Us"
+  },
+  "Features": {
+    "title": "Our Features",
+    "feature1": {
+      "title": "Keep Up",
+      "description": "with the latest news"
+    },
+    "feature2": {
+      "title": "Customize",
+      "description": "your own stock dashboard"
+    },
+    "feature3": {
+      "title": "Seamless",
+      "description": "Integration with other apps, like TradingView"
+    },
+    "feature4": {
+      "title": "Accurate",
+      "description": "real-time stock market data"
+    },
+    "feature5": {
+      "title": "Connect",
+      "description": "With other traders"
+    },
+    "feature6": {
+      "title": "Analyse",
+      "description": "with our cutting-edge AI and powertools"
+    }
+  },
+  "Pricing": {
+    "title": "Pricing",
+    "plans": {
+      "free": {
+        "title": "Free",
+        "features": ["Feature 1", "Feature 2", "Feature 3"],
+        "cta": "Get started Now"
+      },
+      "pro": {
+        "title": "Pro",
+        "features": ["Feature 1", "Feature 2", "Feature 3"],
+        "cta": "Buy Now"
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "features": ["Feature 1", "Feature 2", "Feature 3"],
+        "cta": "Contact Us"
+      }
+    }
+  },
+  "About": {
+    "title": "About",
+    "description": "This is the about page"
+  },
+  "LocaleSwitcher": {
+    "en": "English",
+    "id": "Indonesian"
+  },
+  "DemoRequest": {
+    "title": "Demo Request",
+    "description": "Contact us to schedule a demo with your enterprise",
+    "givenName": "Given Name(s)",
+    "givenNamePlaceholder": "John",
+    "surname": "Surname",
+    "surnamePlaceholder": "Doe",
+    "businessEmail": "Business Email",
+    "businessEmailPlaceholder": "hotmail@yourcompany.com",
+    "teamSize": "How big is your team?",
+    "teamSizeOptions": ["1-100"],
+    "lookingFor": "What are you looking for in IDXTerminal Pro?",
+    "lookingForPlaceholder": "Short answer",
+    "submit": "Submit",
+    "confirmation": "We will reach out within 5 business days"
   }
 }

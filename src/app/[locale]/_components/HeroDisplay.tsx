@@ -2,11 +2,14 @@ import { DisplayFont } from "./DisplayFont";
 import { MacbookScroll } from "~/components/ui/macbook-scroll";
 import { Spotlight } from "~/components/ui/spotlight";
 import { Button } from "~/components/ui/button";
+import placeHolder from "~/../public/placeholder.png";
 
 const DisplayText = () => {
   return (
     <div className="text-stone-50">
-      <DisplayFont className="text-6xl">IDXTerminal</DisplayFont>
+      <DisplayFont className="text-6xl">
+        <span className="italic">IDX</span>Terminal
+      </DisplayFont>
       <p className="text-sm">
         Indonesia&apos;s Premier AI-powered Trading Terminal
       </p>
@@ -32,7 +35,7 @@ export const HeroDisplay = () => {
         fill="white"
       />
       <div className="relative z-30">
-        <MacbookScroll title={<DisplayText />} src={""} />
+        <MacbookScroll title={<DisplayText />} src={placeHolder} />
       </div>
       <div className="absolute bottom-0 z-40 h-64 w-screen bg-gradient-to-b from-transparent to-stone-950/100" />
     </div>

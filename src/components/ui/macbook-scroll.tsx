@@ -29,6 +29,7 @@ import { IconCommand } from "@tabler/icons-react";
 import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 import Image, { type StaticImageData } from "next/image";
+import transparentWhite from "~/../public/logo/transparent-white.png";
 
 export const MacbookScroll = ({
   src,
@@ -154,7 +155,12 @@ export const Lid = ({
           className="absolute inset-0 flex items-center justify-center rounded-lg bg-[#010101]"
         >
           <span className="text-white">
-            <AceternityLogo />
+            <Image
+              height={"35"}
+              src={transparentWhite}
+              alt="idx Logo"
+              unoptimized
+            />
           </span>
         </div>
       </div>

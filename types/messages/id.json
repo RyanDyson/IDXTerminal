@@ -1,0 +1,77 @@
+{
+  "Navigation": {
+    "product": "Produk",
+    "features": "Fitur",
+    "pricing": "Harga",
+    "about": "Tentang",
+    "demo": "Minta Demo",
+    "login": "Masuk"
+  },
+  "Hero": {
+    "title": "IDXTerminal",
+    "subtitle": "Terminal Saham & Ekuitas AI Terdepan di Indonesia",
+    "cta": "Mulai Gratis"
+  },
+  "Footer": {
+    "title": "IDXTerminal",
+    "copyright": "© 2023 IDXTerminal. Semua hak dilindungi.",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsOfService": "Syarat Layanan",
+    "contactUs": "Hubungi Kami"
+  },
+  "Features": {
+    "title": "Fitur Kami",
+    "feature1": {
+      "title": "Tetap Terupdate",
+      "description": "dengan berita terbaru"
+    },
+    "feature2": {
+      "title": "Sesuaikan",
+      "description": "dasbor saham Anda sendiri"
+    },
+    "feature3": {
+      "title": "Integrasi Mulus",
+      "description": "dengan aplikasi lain, seperti TradingView"
+    },
+    "feature4": {
+      "title": "Akurat",
+      "description": "data pasar saham real-time"
+    },
+    "feature5": {
+      "title": "Terhubung",
+      "description": "dengan pedagang lain"
+    },
+    "feature6": {
+      "title": "Analisis",
+      "description": "dengan AI canggih dan alat bantu kami"
+    }
+  },
+  "Pricing": {
+    "title": "Harga",
+    "plans": {
+      "free": {
+        "title": "Gratis",
+        "features": ["Fitur 1", "Fitur 2", "Fitur 3"],
+        "cta": "Mulai Sekarang"
+      },
+      "pro": {
+        "title": "Pro",
+        "features": ["Fitur 1", "Fitur 2", "Fitur 3"],
+        "cta": "Beli Sekarang"
+      },
+      "enterprise": {
+        "title": "Perusahaan",
+        "features": ["Fitur 1", "Fitur 2", "Fitur 3"],
+        "cta": "Hubungi Kami"
+      }
+    }
+  },
+  "About": {
+    "title": "Tentang",
+    "description": "Ini adalah halaman tentang"
+  },
+  "LocaleSwitcher": {
+    "en": "Bahasa Inggris",
+    "id": "Bahasa Indonesia"
+  }
+}
