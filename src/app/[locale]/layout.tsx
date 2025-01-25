@@ -1,6 +1,5 @@
 import { DM_Sans } from "next/font/google";
 import { type Metadata } from "next";
-import { Navbar } from "./_components/Navbar";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -42,7 +41,6 @@ export default async function LocaleLayout({
       <body>
         <TRPCReactProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <Navbar />
             {children}
           </NextIntlClientProvider>
         </TRPCReactProvider>

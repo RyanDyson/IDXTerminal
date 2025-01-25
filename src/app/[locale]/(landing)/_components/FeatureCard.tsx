@@ -1,6 +1,6 @@
 "use client";
 
-import { DisplayFont } from "~/app/[locale]/_components/DisplayFont";
+import { DisplayFont } from "./DisplayFont";
 import {
   IoNewspaper,
   IoColorPalette,

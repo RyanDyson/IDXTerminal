@@ -1,4 +1,4 @@
-import { DisplayFont } from "~/app/[locale]/_components/DisplayFont";
+import { DisplayFont } from "~/app/[locale]/(landing)/_components/DisplayFont";
 
 type featuresItemProps = {
   title: string;

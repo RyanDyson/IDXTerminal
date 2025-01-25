@@ -1,6 +1,6 @@
 import { HydrateClient } from "~/trpc/server";
 import { HeroDisplay } from "./_components/HeroDisplay";
-import { FeatureCard } from "~/app/[locale]/_components/FeatureCard";
+import { FeatureCard } from "./_components/FeatureCard";
 import { Pricing } from "./_components/Pricing";
 import { Footer } from "./_components/Footer";
 import { About } from "./_components/About";
