@@ -3,28 +3,36 @@ import { MacbookScroll } from "~/components/ui/macbook-scroll";
 import { Spotlight } from "~/components/ui/spotlight";
 import { Button } from "~/components/ui/button";
 import placeHolder from "~/../public/placeholder.png";
+import { useTranslations } from "next-intl";
 
 const DisplayText = () => {
+  const t = useTranslations("Hero");
+
   return (
     <div className="text-stone-50">
       <DisplayFont className="text-6xl">
         <span className="italic">IDX</span>Terminal
       </DisplayFont>
-      <p className="text-sm">
-        Indonesia&apos;s Premier AI-powered Trading Terminal
-      </p>
+      <p className="text-sm">{t("subtitle")}</p>
       <Button
         className="mt-4 rounded-full px-4 py-2 font-bold"
         variant="secondary"
         size={"sm"}
       >
-        Start for free
+        {t("cta")}
       </Button>
     </div>
   );
 };
 
 export const HeroDisplay = () => {
+  const t = useTranslations("Hero");
+  const translation = {
+    title: t("title"),
+    subtitle: t("subtitle"),
+    cta: t("cta"),
+  };
+
   return (
     <div
       id="Product"

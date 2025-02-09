@@ -71,7 +71,45 @@
     "description": "Ini adalah halaman tentang"
   },
   "LocaleSwitcher": {
+    "label": "Bahasa Pengaturan",
     "en": "Bahasa Inggris",
     "id": "Bahasa Indonesia"
+  },
+  "DemoRequest": {
+    "title": "Minta Demo",
+    "description": "Kontak kami untuk menjadwalkan demo IDXTerminal Pro",
+    "givenName": "Nama Depan",
+    "givenNamePlaceholder": "John",
+    "surname": "Nama Keluarga",
+    "surnamePlaceholder": "Doe",
+    "businessEmail": "Email Bisnis",
+    "businessEmailPlaceholder": "hotmail@yourcompany.com",
+    "teamSize": "Sebarapa besar tim Anda?",
+    "teamSizeOptions": "[1-100]",
+    "lookingFor": "Apa yang dicari dari IDXTerminal Pro?",
+    "lookingForPlaceholder": "Jawaban singkat",
+    "submit": "Kirim",
+    "confirmation": "Kami akan segera menghubgungi Anda dalam 5 hari kerja."
+  },
+  "Login": {
+    "title": "Masuk",
+    "description": "Selamat datang kembali ke platform andalan anda.",
+    "email": "Email",
+    "password": "Kata Sandi",
+    "submit": "Kirim",
+    "reset": "Lupa kata sandi Anda?",
+    "resetButton": "Atur Ulang Kata Sandi",
+    "question": "Tidak punya akun?",
+    "cta": "Daftar di sini"
+  },
+  "Signup": {
+    "title": "Daftar",
+    "description": "Bergabunglah untuk meningkatan pengalaman trading Anda",
+    "name": "Nama Tampilan",
+    "email": "Email",
+    "password": "Kata Sandi",
+    "submit": "Submit",
+    "question": "Sudah punya akun?",
+    "cta": "Masuk di sini"
   }
 }

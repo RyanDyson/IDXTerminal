@@ -71,6 +71,7 @@
     "description": "This is the about page"
   },
   "LocaleSwitcher": {
+    "label": "Language",
     "en": "English",
     "id": "Indonesian"
   },
@@ -84,10 +85,31 @@
     "businessEmail": "Business Email",
     "businessEmailPlaceholder": "hotmail@yourcompany.com",
     "teamSize": "How big is your team?",
-    "teamSizeOptions": ["1-100"],
+    "teamSizeOptions": "[1-100]",
     "lookingFor": "What are you looking for in IDXTerminal Pro?",
     "lookingForPlaceholder": "Short answer",
     "submit": "Submit",
     "confirmation": "We will reach out within 5 business days"
+  },
+  "Login": {
+    "title": "Login",
+    "description": "Welcome back to your premier trading experience",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit",
+    "reset": "Forgot your password?",
+    "resetButton": "Reset Password",
+    "question": "Don't have an account?",
+    "cta": "Sign up here"
+  },
+  "Signup": {
+    "title": "Sign Up",
+    "description": "Join us to catapult your trading experience",
+    "name": "Display Name",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit",
+    "question": "Already have an account?",
+    "cta": "Login here"
   }
 }

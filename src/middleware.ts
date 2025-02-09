@@ -1,15 +1,17 @@
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
-import { clerkMiddleware } from "@clerk/nextjs/server";
-import type { NextRequest, NextFetchEvent } from "next/server";
 
-const clerk = clerkMiddleware();
-const intlMiddleware = createMiddleware(routing);
+const handleI18nRouting = createMiddleware(routing);
+const isProtectedRoute = createRouteMatcher(["/:locale/dashboard(.*)"]);
 
-export const middleware = async (req: NextRequest, ev: NextFetchEvent) => {
-  await clerk(req, ev);
-  return intlMiddleware(req);
-};
+export default clerkMiddleware(async (auth, req) => {
+  if (isProtectedRoute(req)) {
+    await auth.protect();
+  }
+
+  return handleI18nRouting(req);
+});
 
 export const config = {
   matcher: [

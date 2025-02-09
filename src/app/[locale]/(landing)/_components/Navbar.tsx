@@ -38,7 +38,7 @@ export const Navbar = () => {
         <div className="jusitfy-between m-0 flex h-full space-x-2 ps-8">
           <Demo />
           <Login />
-          <LocaleSwitcher />
+          <LocaleSwitcher dashboard={false} />
         </div>
       </div>
     </div>

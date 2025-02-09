@@ -99,8 +99,8 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LocaleSwitcher />
+            <DropdownMenuItem className="px-0">
+              <LocaleSwitcher dashboard={true} />
             </DropdownMenuItem>
             <DropdownMenuItem>
               <LogOut />
