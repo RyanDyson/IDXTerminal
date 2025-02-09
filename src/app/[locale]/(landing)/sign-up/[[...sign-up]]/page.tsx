@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { SignUpForm } from "./SignUpForm";
 
-export const SignUp = () => {
+export default function SignUpPage() {
   const t = useTranslations("Signup");
   const translations = {
     title: t("title"),
@@ -15,8 +15,4 @@ export const SignUp = () => {
   };
 
   return <SignUpForm translation={translations} />;
-};
-
-export default function SignUpPage() {
-  return <SignUp />;
 }

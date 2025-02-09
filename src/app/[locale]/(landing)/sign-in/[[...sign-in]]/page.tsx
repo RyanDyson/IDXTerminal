@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { SignInForm } from "./SignInForm";
 
-export const SignIn = () => {
+export default function SignUpPage() {
   const t = useTranslations("Login");
   const translations = {
     title: t("title"),
@@ -16,12 +16,4 @@ export const SignIn = () => {
   };
 
   return <SignInForm translation={translations} />;
-};
-
-export default function SignUpPage({
-  params,
-}: {
-  params: Promise<{ slug?: string }>;
-}) {
-  return <SignIn />;
 }
