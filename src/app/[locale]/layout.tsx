@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "~/i18n/routing";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "~/components/themeprovider";
 
 export const metadata: Metadata = {
   title: "IDXTerminal",
@@ -22,13 +23,14 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
+export default async function LocaleLayout(props: {
   children: React.ReactNode;
-  params: { locale: "en" | "id" };
+  params: Promise<{ locale: "en" | "id" }>;
 }) {
+  const params = await props.params;
+
+  const { children } = props;
+
   const { locale } = params;
 
   if (!routing.locales.includes(locale)) {
@@ -43,7 +45,14 @@ export default async function LocaleLayout({
         <ClerkProvider>
           <TRPCReactProvider>
             <NextIntlClientProvider locale={locale} messages={messages}>
-              {children}
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="dark"
+                enableSystem
+                disableTransitionOnChange
+              >
+                {children}
+              </ThemeProvider>
             </NextIntlClientProvider>
           </TRPCReactProvider>
         </ClerkProvider>

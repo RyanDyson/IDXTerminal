@@ -2,12 +2,14 @@
 
 import { DisplayFont } from "../../_components/DisplayFont";
 import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
 import { type SignUpTranslations } from "~/i18n/translations/SignUp";
 import { Link } from "~/i18n/routing";
 import * as Clerk from "@clerk/elements/common";
 import * as SignUp from "@clerk/elements/sign-up";
 import { SiClerk } from "react-icons/si";
+import { FaGoogle } from "react-icons/fa6";
+import { cn } from "~/lib/utils";
+// import { SignUp } from "@clerk/nextjs";
 
 type Props = {
   translation: SignUpTranslations;
@@ -18,6 +20,7 @@ export function SignUpForm(props: Props) {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center bg-stone-950">
+      {/* <SignUp /> */}
       <SignUp.Root>
         <SignUp.Step name="start">
           <div className="flex min-w-96 flex-col justify-between space-y-1 divide-y-2 divide-stone-700 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-lg">
@@ -35,7 +38,19 @@ export function SignUpForm(props: Props) {
                 type="name"
                 required
               /> */}
-              <Clerk.Field name="emailAdress" className="space-y-2">
+              <Clerk.Field name="username" className="space-y-2">
+                <Clerk.Label>
+                  <p>Username</p>
+                </Clerk.Label>
+                <Clerk.Input
+                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  placeholder="your name"
+                  type="text"
+                  required
+                />
+                <Clerk.FieldError className="block text-sm text-destructive" />
+              </Clerk.Field>
+              <Clerk.Field name="emailAddress" className="space-y-2">
                 <Clerk.Label>
                   <p>{translation.email}</p>
                 </Clerk.Label>
@@ -63,23 +78,28 @@ export function SignUpForm(props: Props) {
               <Clerk.GlobalError className="block text-sm text-red-400" />
               <SignUp.Captcha className="empty:hidden" />
               <SignUp.Action submit className="w-min">
-                <div className="text-nowrap rounded-full bg-stone-50 px-4 py-2 font-bold text-stone-950 transition-colors hover:stroke-neutral-300">
+                <div className="text-nowrap rounded-full bg-stone-50 px-4 py-2 text-sm font-bold text-stone-950 transition-colors hover:stroke-neutral-300">
                   {translation.title}
                 </div>
               </SignUp.Action>
             </div>
             <div className="flex w-full flex-col space-y-4 pb-2 pt-4">
+              <Clerk.Connection
+                name="google"
+                className="flex w-full items-center justify-center space-x-2 rounded-full border border-stone-700 bg-stone-900 py-2 transition-colors hover:bg-stone-950 hover:stroke-neutral-300"
+              >
+                <FaGoogle />
+                <p>Sign up with google</p>
+              </Clerk.Connection>
               <div className="flex w-full items-center justify-between space-x-2">
                 <p>{translation.question}</p>
                 <Link href={"/sign-in"}>
-                  <Button
-                    className="rounded-full px-4 py-2 font-bold"
-                    variant="secondary"
-                  >
+                  <Button className="rounded-full px-4 py-2 font-bold">
                     {translation.cta}
                   </Button>
                 </Link>
               </div>
+
               <div className="flex w-full items-center justify-end space-x-2 text-sm text-stone-300">
                 <SiClerk />
                 <span>Secured by Clerk</span>
@@ -87,54 +107,67 @@ export function SignUpForm(props: Props) {
             </div>
           </div>
         </SignUp.Step>
-        <SignUp.Step name="continue" className="text-white">
-          <h1>Fill in missing fields</h1>
 
-          <Clerk.Field name="username">
-            <Clerk.Label>Username</Clerk.Label>
-            <Clerk.Input />
-            <Clerk.FieldError />
-          </Clerk.Field>
+        <SignUp.Step name="verifications">
+          <div className="flex min-w-96 flex-col justify-between space-y-1 divide-y-2 divide-stone-700 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-lg">
+            <div>
+              <div>
+                <DisplayFont className="text-3xl">
+                  Verify Email Address
+                </DisplayFont>
+              </div>
+              <div>An OTP will be sent to your email</div>
+            </div>
 
-          <SignUp.Action submit>Continue</SignUp.Action>
-        </SignUp.Step>
-        <SignUp.Step
-          name="verifications"
-          className="w-full space-y-6 rounded-2xl bg-neutral-100 px-4 py-10 ring-1 ring-inset ring-white/5 sm:w-96 sm:px-8"
-        >
-          <header className="text-center">
-            <h1 className="mt-4 text-xl font-medium tracking-tight text-white">
-              Verify email code
-            </h1>
-          </header>
-          <Clerk.GlobalError className="block text-sm text-red-400" />
-          <SignUp.Strategy name="email_code">
-            <Clerk.Field name="code" className="space-y-2">
-              <Clerk.Label className="text-sm font-medium text-white">
-                Email code
-              </Clerk.Label>
-              <Clerk.Input
-                required
-                className="w-full rounded-md bg-neutral-900 px-3.5 py-2 text-sm text-white outline-none ring-1 ring-inset ring-zinc-700 hover:ring-zinc-600 focus:bg-transparent focus:ring-[1.5px] focus:ring-blue-400 data-[invalid]:ring-red-400"
-              />
-              <Clerk.FieldError className="block text-sm text-red-400" />
-            </Clerk.Field>
-            <SignUp.Action
-              submit
-              className="relative isolate w-full rounded-md bg-blue-500 px-3.5 py-1.5 text-center text-sm font-medium text-white shadow-[0_1px_0_0_theme(colors.white/10%)_inset,0_0_0_1px_theme(colors.white/5%)] outline-none before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-white/5 before:opacity-0 hover:before:opacity-100 focus-visible:outline-[1.5px] focus-visible:outline-offset-2 focus-visible:outline-blue-400 active:text-white/70 active:before:bg-black/10"
-            >
-              Finish registration
-            </SignUp.Action>
-          </SignUp.Strategy>
-          <p className="text-center text-sm text-zinc-400">
-            Have an account?{" "}
-            <Clerk.Link
-              navigate="sign-in"
-              className="font-medium text-white decoration-white/20 underline-offset-4 outline-none hover:underline focus-visible:underline"
-            >
-              Sign in
-            </Clerk.Link>
-          </p>
+            <SignUp.Strategy name="email_code">
+              <Clerk.Field name="code" className="space-y-2">
+                <Clerk.Label className="w-full text-center">
+                  <p className="pt-4">OTP</p>
+                </Clerk.Label>
+                <Clerk.Input
+                  type="otp"
+                  className="flex justify-center has-[:disabled]:opacity-50"
+                  autoSubmit
+                  render={({ value, status }) => {
+                    return (
+                      <div
+                        data-status={status}
+                        className={cn(
+                          "relative flex size-10 items-center justify-center border-y border-r border-input text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md",
+                          {
+                            "z-10 ring-2 ring-ring ring-offset-background":
+                              status === "cursor" || status === "selected",
+                          },
+                        )}
+                      >
+                        {value}
+                        {status === "cursor" && (
+                          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                            <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }}
+                />
+                <Clerk.FieldError className="block text-sm text-destructive" />
+                <Clerk.GlobalError className="block text-sm text-red-400" />
+              </Clerk.Field>
+              <SignUp.Action submit className="w-full py-2">
+                <div className="text-nowrap rounded-full bg-stone-50 px-4 py-2 font-bold text-stone-950 transition-colors hover:stroke-neutral-300">
+                  Verify
+                </div>
+              </SignUp.Action>
+            </SignUp.Strategy>
+            <div className="flex w-full items-center justify-between space-x-2 pt-4">
+              <p>{translation.question}</p>
+              <Link href={"/sign-in"}>
+                <Button className="rounded-full px-4 py-2 font-bold">
+                  {translation.cta}
+                </Button>
+              </Link>
+            </div>
+          </div>
         </SignUp.Step>
       </SignUp.Root>
     </div>

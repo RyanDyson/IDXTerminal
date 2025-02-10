@@ -66,10 +66,7 @@ export function SignInForm(props: Props) {
               <div />
 
               <SignIn.Action submit className="w-min">
-                <Button
-                  className="w-min rounded-full px-4 py-2 font-bold"
-                  variant="secondary"
-                >
+                <Button className="w-min rounded-full px-4 py-2 font-bold">
                   {translation.title}
                 </Button>
               </SignIn.Action>
@@ -79,10 +76,7 @@ export function SignInForm(props: Props) {
               <div className="flex w-full items-center justify-between space-x-2">
                 <p>{translation.question}</p>
                 <Link href={"/sign-up"}>
-                  <Button
-                    className="rounded-full px-4 py-2 font-bold"
-                    variant="secondary"
-                  >
+                  <Button className="rounded-full px-4 py-2 font-bold">
                     {translation.cta}
                   </Button>
                 </Link>

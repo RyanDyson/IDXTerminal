@@ -48,10 +48,7 @@ export function DemoDialog(props: props) {
           required
         />
         <div />
-        <Button
-          className="w-min rounded-full px-4 py-2 font-bold"
-          variant="secondary"
-        >
+        <Button className="w-min rounded-full px-4 py-2 font-bold">
           {translation.submit}
         </Button>
       </div>

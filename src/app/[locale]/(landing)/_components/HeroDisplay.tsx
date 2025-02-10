@@ -14,11 +14,7 @@ const DisplayText = () => {
         <span className="italic">IDX</span>Terminal
       </DisplayFont>
       <p className="text-sm">{t("subtitle")}</p>
-      <Button
-        className="mt-4 rounded-full px-4 py-2 font-bold"
-        variant="secondary"
-        size={"sm"}
-      >
+      <Button className="mt-4 rounded-full px-4 py-2 font-bold" size={"sm"}>
         {t("cta")}
       </Button>
     </div>
