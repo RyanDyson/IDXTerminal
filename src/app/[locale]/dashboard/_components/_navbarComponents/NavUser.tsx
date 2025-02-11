@@ -29,6 +29,7 @@ import { LocaleSwitcher } from "~/app/[locale]/(landing)/_components/LocaleSwitc
 import { SignOutButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 import { type User } from "@clerk/nextjs/server";
+import { UserButton } from "@clerk/nextjs";
 
 export function NavUser() {
   const { user } = useUser();

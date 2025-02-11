@@ -108,6 +108,40 @@ export function SignUpForm(props: Props) {
           </div>
         </SignUp.Step>
 
+        <SignUp.Step name="continue">
+          <div className="flex min-w-96 flex-col justify-between space-y-1 divide-y-2 divide-stone-700 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-lg">
+            <div>
+              <div>
+                <DisplayFont className="text-3xl">
+                  Additional Information
+                </DisplayFont>
+              </div>
+              <div>Fill out the missing information to get started</div>
+            </div>
+
+            <Clerk.Field name="username" className="space-y-2 pt-4">
+              <Clerk.Label>
+                <p>Username</p>
+              </Clerk.Label>
+              <Clerk.Input
+                className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                placeholder="Username"
+                type="text"
+                required
+              />
+              <Clerk.FieldError className="block text-sm text-destructive" />
+            </Clerk.Field>
+            <Clerk.GlobalError className="block text-sm text-red-400" />
+            <div />
+
+            <SignUp.Action submit className="w-min border-none pt-4">
+              <div className="text-nowrap rounded-full bg-stone-50 px-4 py-2 text-sm font-bold text-stone-950 transition-colors hover:stroke-neutral-300">
+                {translation.title}
+              </div>
+            </SignUp.Action>
+          </div>
+        </SignUp.Step>
+
         <SignUp.Step name="verifications">
           <div className="flex min-w-96 flex-col justify-between space-y-1 divide-y-2 divide-stone-700 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-lg">
             <div>

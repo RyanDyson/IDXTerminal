@@ -4,9 +4,12 @@ import { Spotlight } from "~/components/ui/spotlight";
 import { Button } from "~/components/ui/button";
 import placeHolder from "~/../public/placeholder.png";
 import { useTranslations } from "next-intl";
+import { Link } from "~/i18n/routing";
+import { currentUser } from "@clerk/nextjs/server";
 
-const DisplayText = () => {
+const DisplayText = async () => {
   const t = useTranslations("Hero");
+  const user = await currentUser();
 
   return (
     <div className="text-stone-50">
@@ -14,9 +17,11 @@ const DisplayText = () => {
         <span className="italic">IDX</span>Terminal
       </DisplayFont>
       <p className="text-sm">{t("subtitle")}</p>
-      <Button className="mt-4 rounded-full px-4 py-2 font-bold" size={"sm"}>
-        {t("cta")}
-      </Button>
+      <Link href={user ? "/dashboard" : "/sign-in"}>
+        <Button className="mt-4 rounded-full px-4 py-2 font-bold" size={"sm"}>
+          {user ? "Go to Your Dashboard" : t("cta")}
+        </Button>
+      </Link>
     </div>
   );
 };

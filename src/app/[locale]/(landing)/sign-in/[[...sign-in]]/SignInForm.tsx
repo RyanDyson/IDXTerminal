@@ -2,12 +2,12 @@
 
 import { DisplayFont } from "../../_components/DisplayFont";
 import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
 import { type LoginDialogTranslation } from "~/i18n/translations/LoginDialog";
 import { Link } from "~/i18n/routing";
 import { SiClerk } from "react-icons/si";
 import * as Clerk from "@clerk/elements/common";
 import * as SignIn from "@clerk/elements/sign-in";
+import { FaGoogle } from "react-icons/fa";
 
 type Props = {
   translation: LoginDialogTranslation;
@@ -42,6 +42,7 @@ export function SignInForm(props: Props) {
                 />
                 <Clerk.FieldError className="block text-sm text-destructive" />
               </Clerk.Field>
+
               <Clerk.Field name="password" className="space-y-2">
                 <Clerk.Label>
                   <p>{translation.password}</p>
@@ -56,15 +57,16 @@ export function SignInForm(props: Props) {
               </Clerk.Field>
               <div className="flex w-full items-center justify-between space-y-2 text-sm">
                 <p>{translation.reset}</p>
-                <Link
-                  href={"/reset"}
+                <SignIn.Action
+                  navigate={"start"}
                   className="transition-colors hover:text-stone-300"
                 >
                   {translation.resetButton}
-                </Link>
+                </SignIn.Action>
               </div>
               <div />
 
+              <Clerk.GlobalError className="block text-sm text-destructive" />
               <SignIn.Action submit className="w-min">
                 <Button className="w-min rounded-full px-4 py-2 font-bold">
                   {translation.title}
@@ -73,6 +75,13 @@ export function SignInForm(props: Props) {
             </div>
 
             <div className="flex w-full flex-col space-y-4 pb-2 pt-4">
+              <Clerk.Connection
+                name="google"
+                className="flex w-full items-center justify-center space-x-2 rounded-full border border-stone-700 bg-stone-900 py-2 transition-colors hover:bg-stone-950 hover:stroke-neutral-300"
+              >
+                <FaGoogle />
+                <p>Sign In with google</p>
+              </Clerk.Connection>
               <div className="flex w-full items-center justify-between space-x-2">
                 <p>{translation.question}</p>
                 <Link href={"/sign-up"}>
@@ -88,21 +97,31 @@ export function SignInForm(props: Props) {
             </div>
           </div>
         </SignIn.Step>
-        <SignIn.Step name="verifications">
-          <SignIn.Strategy name="email_code">
-            <h1>Check your email</h1>
-            <p>
-              We sent a code to <SignIn.SafeIdentifier />.
-            </p>
 
-            <Clerk.Field name="code">
-              <Clerk.Label>Email code</Clerk.Label>
-              <Clerk.Input />
-              <Clerk.FieldError />
-            </Clerk.Field>
+        <SignIn.Step name={"forgot-password"}>
+          <div className="flex min-w-96 flex-col justify-between space-y-1 divide-y-2 divide-stone-700 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-lg">
+            <DisplayFont className="text-3xl">
+              Forgot your password?
+            </DisplayFont>
 
-            <SignIn.Action submit>Continue</SignIn.Action>
-          </SignIn.Strategy>
+            <SignIn.SupportedStrategy name="reset_password_email_code">
+              <Button>Reset Password</Button>
+            </SignIn.SupportedStrategy>
+
+            <SignIn.Action navigate="previous">Cancel</SignIn.Action>
+          </div>
+        </SignIn.Step>
+
+        <SignIn.Step name="reset-password">
+          <div className="flex min-w-96 flex-col justify-between space-y-1 divide-y-2 divide-stone-700 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-lg">
+            <DisplayFont className="text-3xl">Reset your password</DisplayFont>
+
+            <SignIn.SupportedStrategy name="reset_password_email_code">
+              <Button>Reset Password</Button>
+            </SignIn.SupportedStrategy>
+
+            <SignIn.Action navigate="previous">Cancel</SignIn.Action>
+          </div>
         </SignIn.Step>
       </div>
     </SignIn.Root>

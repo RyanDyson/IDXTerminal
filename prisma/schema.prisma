@@ -10,11 +10,35 @@ generator client {
     provider = "prisma-client-js"
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
+model User {
+    id          String  @id @default(cuid())
+    clerkId     String  @unique
+    email       String  @unique
+    name        String?
+    preferences Json
+
+    dashboard Dashboard[]
+    createdAt DateTime    @default(now())
+    updatedAt DateTime    @updatedAt
+}
+
+model Dashboard {
+    id        String   @id @default(cuid())
     name      String
+    user      User     @relation(fields: [userId], references: [id])
+    userId    String
+    blocks    Block[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+}
 
-    @@index([name])
+model Block {
+    id          String    @id @default(cuid())
+    name        String
+    dashboard   Dashboard @relation(fields: [dashboardId], references: [id])
+    dashboardId String
+    equity      String
+    type        String
+    createdAt   DateTime  @default(now())
+    updatedAt   DateTime  @updatedAt
 }

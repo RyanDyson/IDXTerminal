@@ -42,20 +42,18 @@ export default async function LocaleLayout(props: {
   return (
     <html lang={locale} className={dm.className}>
       <body>
-        <ClerkProvider>
-          <TRPCReactProvider>
-            <NextIntlClientProvider locale={locale} messages={messages}>
-              <ThemeProvider
-                attribute="class"
-                defaultTheme="dark"
-                enableSystem
-                disableTransitionOnChange
-              >
-                {children}
-              </ThemeProvider>
-            </NextIntlClientProvider>
-          </TRPCReactProvider>
-        </ClerkProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <TRPCReactProvider>
+              <ClerkProvider>{children}</ClerkProvider>
+            </TRPCReactProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
