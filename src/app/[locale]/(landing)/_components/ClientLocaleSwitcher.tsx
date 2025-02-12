@@ -17,7 +17,7 @@ import {
 import { IoGlobe } from "react-icons/io5";
 import { DisplayFont } from "./DisplayFont";
 import { useParams } from "next/navigation";
-import { Locale, usePathname, useRouter } from "~/i18n/routing";
+import { type Locale, usePathname, useRouter } from "~/i18n/routing";
 import { useTransition } from "react";
 import { type LocaleTranslation } from "~/i18n/translations/LocaleSwticher";
 import { FaGear } from "react-icons/fa6";

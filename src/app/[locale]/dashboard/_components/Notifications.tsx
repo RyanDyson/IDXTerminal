@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { type TRPCError } from "@trpc/server";
 import { IoNotifications } from "react-icons/io5";

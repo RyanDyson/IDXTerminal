@@ -6,7 +6,7 @@ export default async function LandingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="hidden md:block">
       <Navbar />
       {children}
     </div>

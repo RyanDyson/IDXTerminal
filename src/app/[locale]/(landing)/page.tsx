@@ -4,7 +4,6 @@ import { FeatureCard } from "./_components/FeatureCard";
 import { Pricing } from "./_components/Pricing";
 import { Footer } from "./_components/Footer";
 import { About } from "./_components/About";
-import { useTranslations } from "next-intl";
 
 export default async function Home() {
   return (

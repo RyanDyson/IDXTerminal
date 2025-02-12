@@ -7,23 +7,31 @@ import { useTranslations } from "next-intl";
 import { Link } from "~/i18n/routing";
 import { currentUser } from "@clerk/nextjs/server";
 
-const DisplayText = async () => {
-  const t = useTranslations("Hero");
+const DisplayText = async (props: props) => {
   const user = await currentUser();
+  const { translation } = props;
 
   return (
     <div className="text-stone-50">
       <DisplayFont className="text-6xl">
         <span className="italic">IDX</span>Terminal
       </DisplayFont>
-      <p className="text-sm">{t("subtitle")}</p>
+      <p className="text-sm">{translation.subtitle}</p>
       <Link href={user ? "/dashboard" : "/sign-in"}>
         <Button className="mt-4 rounded-full px-4 py-2 font-bold" size={"sm"}>
-          {user ? "Go to Your Dashboard" : t("cta")}
+          {user ? "Go to Your Dashboard" : translation.cta}
         </Button>
       </Link>
     </div>
   );
+};
+
+type props = {
+  translation: {
+    title: string;
+    subtitle: string;
+    cta: string;
+  };
 };
 
 export const HeroDisplay = () => {
@@ -44,7 +52,10 @@ export const HeroDisplay = () => {
         fill="white"
       />
       <div className="relative z-30">
-        <MacbookScroll title={<DisplayText />} src={placeHolder} />
+        <MacbookScroll
+          title={<DisplayText translation={translation} />}
+          src={placeHolder}
+        />
       </div>
       <div className="absolute bottom-0 z-40 h-64 w-screen bg-gradient-to-b from-transparent to-stone-950/100" />
     </div>

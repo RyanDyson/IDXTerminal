@@ -16,10 +16,11 @@ export function FeatureCard() {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const cards = cardsRef?.current?.getElementsByClassName("card");
+    const cardsContainer = cardsRef.current;
+    const cards = cardsContainer?.getElementsByClassName("card");
 
     const handleMouseMove = (e: { clientX: number; clientY: number }) => {
-      if (cardsRef.current && cards) {
+      if (cardsContainer && cards) {
         for (const card of cards) {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
@@ -31,13 +32,13 @@ export function FeatureCard() {
       }
     };
 
-    if (cardsRef.current) {
-      cardsRef.current.addEventListener("mousemove", handleMouseMove);
+    if (cardsContainer) {
+      cardsContainer.addEventListener("mousemove", handleMouseMove);
     }
 
     return () => {
-      if (cardsRef.current) {
-        cardsRef.current.removeEventListener("mousemove", handleMouseMove);
+      if (cardsContainer) {
+        cardsContainer.removeEventListener("mousemove", handleMouseMove);
       }
     };
   }, []);
@@ -56,7 +57,7 @@ export function FeatureCard() {
     {
       icon: <IoApps size={30} className="text-stone-50" />,
       title: "Seamless",
-      label: "Intergration with other apps, like TradingView",
+      label: "Integration with other apps, like TradingView",
     },
     {
       icon: <IoPodium size={30} className="stroke-stone-400" />,

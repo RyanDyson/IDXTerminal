@@ -10,6 +10,7 @@ export const userRouter = createTRPCRouter({
         clerkId: z.string(),
         email: z.string().email(),
         username: z.string(),
+        imageUrl: z.string().optional(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -19,6 +20,7 @@ export const userRouter = createTRPCRouter({
           email: input.email,
           name: input.username,
           preferences: defaultPreferences,
+          profilePicUrl: input.imageUrl,
         },
       });
     }),
@@ -32,6 +34,19 @@ export const userRouter = createTRPCRouter({
       ctx.db.user.findUnique({
         where: {
           email: input.email,
+        },
+      }),
+    ),
+  getUserByClerkId: publicProcedure
+    .input(
+      z.object({
+        clerkId: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) =>
+      ctx.db.user.findUnique({
+        where: {
+          clerkId: input.clerkId,
         },
       }),
     ),

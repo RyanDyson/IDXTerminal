@@ -11,11 +11,19 @@ export async function GET() {
   }
 
   const user = await currentUser();
-  if (!user || !user.primaryEmailAddress || !user.username) {
+  if (!user) {
     return new NextResponse(
       "User doesn't exist / User is not correctly onboarded",
       { status: 401 },
     );
+  }
+  if (!user.primaryEmailAddress) {
+    return new NextResponse("User doesn't have an email address", {
+      status: 401,
+    });
+  }
+  if (!user.username) {
+    return new NextResponse("User doesn't have a username", { status: 401 });
   }
 
   let dbUser = await api.user.getUserByEmail({
@@ -27,6 +35,7 @@ export async function GET() {
       clerkId: user.id,
       email: user.primaryEmailAddress.emailAddress,
       username: user.username,
+      imageUrl: user.imageUrl,
     });
   }
 

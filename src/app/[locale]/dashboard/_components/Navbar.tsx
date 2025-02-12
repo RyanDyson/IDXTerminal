@@ -10,12 +10,12 @@ import React from "react";
 import { NavLogo } from "./_navbarComponents/NavLogo";
 import { NavDashboardList } from "./_navbarComponents/NavDashboardList";
 import { NavMainGroup } from "./_navbarComponents/NavMainGroup";
-import { currentUser } from "@clerk/nextjs/server";
+import { getUser } from "../../api/auth/get-user/server";
 
 export async function Navbar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const user = await currentUser();
+  const user = await getUser();
 
   return (
     <Sidebar collapsible="icon" className="dark text-white" {...props}>
@@ -25,10 +25,10 @@ export async function Navbar({
         </SidebarHeader>
         <SidebarContent className="p-2">
           <NavMainGroup />
-          <NavDashboardList />
+          <NavDashboardList user={user} />
         </SidebarContent>
         <SidebarFooter>
-          <NavUser />
+          <NavUser user={user} />
         </SidebarFooter>
       </div>
       <SidebarRail />
