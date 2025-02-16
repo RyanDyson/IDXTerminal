@@ -43,6 +43,7 @@ model Block {
     dashboard   Dashboard @relation(fields: [dashboardId], references: [id])
     dashboardId String
     type        String
+    equity      String
     createdAt   DateTime  @default(now())
     updatedAt   DateTime  @updatedAt
 }

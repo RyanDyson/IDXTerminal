@@ -11,11 +11,17 @@ type props = {
 export async function NavDashboardList(props: props) {
   const { user } = props;
 
-  const dashboards = user
-    ? await api.dashboard.getDashboardsByUserId({
-        userId: user.id,
-      })
-    : [];
+  const dashboards = [
+    {
+      name: "Dashboard 1",
+      id: "1",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      userId: "1",
+      equity: "AAPL",
+      notification: 0,
+    },
+  ];
 
   // const tempData = {
   //   data: [

@@ -1,5 +1,5 @@
 import { SecuritiesItem } from "./securitiesItem";
-import { type Stock, tempData } from "./../../types/tempSahamList";
+import { type Stock, tempData } from "../../types/tempSahamList";
 import { DisplayFont } from "~/app/[locale]/(landing)/_components/DisplayFont";
 import { NavSearch } from "../_navbarComponents/NavSearchBar";
 
