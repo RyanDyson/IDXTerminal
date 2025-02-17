@@ -11,11 +11,18 @@ import { NavLogo } from "./_navbarComponents/NavLogo";
 import { NavDashboardList } from "./_navbarComponents/NavDashboardList";
 import { NavMainGroup } from "./_navbarComponents/NavMainGroup";
 import { getUser } from "../../api/auth/get-user/server";
+import { api } from "~/trpc/server";
+import { type Dashboard } from "@prisma/client";
 
 export async function Navbar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   const user = await getUser();
+  let dashboards: Dashboard[] = [];
+  if (user) {
+    const data = await api.dashboard.getDashboardsByUserId({ userId: user.id });
+    dashboards = data;
+  }
 
   return (
     <Sidebar collapsible="icon" className="dark text-white" {...props}>
@@ -25,7 +32,7 @@ export async function Navbar({
         </SidebarHeader>
         <SidebarContent className="p-2">
           <NavMainGroup />
-          <NavDashboardList user={user} />
+          <NavDashboardList user={user} dashboards={dashboards} />
         </SidebarContent>
         <SidebarFooter>
           <NavUser user={user} />

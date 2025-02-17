@@ -1,6 +1,5 @@
 "use client";
 
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -12,32 +11,32 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormReturn } from "react-hook-form";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type User } from "@prisma/client";
 
 const formSchema = z.object({
   name: z.string(),
   equity: z.string(),
+  userId: z.string(),
 });
 
+type FormData = z.infer<typeof formSchema>;
+
 type Props = {
+  onSubmit: (data: FormData) => Promise<void>;
   user: User | null;
-  handleSubmit: (data: {
-    name: string;
-    equity: string;
-    userId: string;
-  }) => Promise<void>;
+  isSubmitting: boolean;
 };
 
-export function NavAddDashboardForm(props: Props) {
-  const { handleSubmit, user } = props;
-
-  const form = useForm<z.infer<typeof formSchema>>({
+export function NavAddDashboardForm({ onSubmit, user, isSubmitting }: Props) {
+  const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       equity: "",
+      userId: user?.id ?? "",
     },
   });
 
@@ -45,8 +44,9 @@ export function NavAddDashboardForm(props: Props) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit((data) =>
-          handleSubmit({ ...data, userId: user?.id ?? "" }),
+          onSubmit({ ...data, userId: user?.id ?? "" }),
         )}
+        className="flex flex-col space-y-2"
       >
         <FormField
           control={form.control}
@@ -79,7 +79,13 @@ export function NavAddDashboardForm(props: Props) {
             </FormItem>
           )}
         />
-        <Button type="submit">Add</Button>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="mt-4 w-min self-end"
+        >
+          {isSubmitting ? "Adding..." : "Add"}
+        </Button>
       </form>
     </Form>
   );

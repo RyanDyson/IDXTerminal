@@ -28,6 +28,7 @@ import {
 import { LocaleSwitcher } from "~/app/[locale]/(landing)/_components/LocaleSwitcher";
 import { SignOutButton } from "@clerk/nextjs";
 import { type User } from "@prisma/client";
+import { Link } from "~/i18n/routing";
 
 type NavUserProps = {
   user: User | null;
@@ -90,10 +91,12 @@ export function NavUser(props: NavUserProps) {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheck />
-                Account
-              </DropdownMenuItem>
+              <Link href={"/dashboard/user-profile"}>
+                <DropdownMenuItem>
+                  <BadgeCheck />
+                  Account
+                </DropdownMenuItem>
+              </Link>
               <DropdownMenuItem>
                 <CreditCard />
                 Billing

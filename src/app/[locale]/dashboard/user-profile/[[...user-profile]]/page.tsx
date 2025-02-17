@@ -1,5 +1,9 @@
-import { UserProfile } from "@clerk/nextjs";
+import { DisplayFont } from "~/app/[locale]/(landing)/_components/DisplayFont";
 
-const UserProfilePage = () => <UserProfile />;
-
-export default UserProfilePage;
+export default function userProfilePage() {
+  return (
+    <div className="h-full w-full">
+      <DisplayFont className="text-2xl">Profile</DisplayFont>
+    </div>
+  );
+}

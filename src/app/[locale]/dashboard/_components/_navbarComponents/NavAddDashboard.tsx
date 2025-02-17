@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Dialog,
   DialogHeader,
@@ -7,28 +5,16 @@ import {
   DialogTitle,
   DialogContent,
 } from "~/components/ui/dialog";
-import { api } from "~/trpc/react";
 import { FaPlus } from "react-icons/fa6";
 import { DisplayFont } from "~/app/[locale]/(landing)/_components/DisplayFont";
-import { NavAddDashboardForm } from "./NavAddDashboardForm";
-
 import { type User } from "@prisma/client";
+import { NavAddDashboardFormHandler } from "./NavAddDashboardFormHandler";
 
 type Props = {
   user: User | null;
 };
 
-export function NavAddDashboard(props: Props) {
-  const mutation = api.dashboard.createDashboard.useMutation();
-
-  const handleSubmit = async (data: {
-    name: string;
-    equity: string;
-    userId: string;
-  }) => {
-    await mutation.mutateAsync(data);
-  };
-
+export function NavAddDashboard({ user }: Props) {
   return (
     <Dialog>
       <DialogTrigger>
@@ -41,7 +27,7 @@ export function NavAddDashboard(props: Props) {
           </DialogTitle>
         </DialogHeader>
         <div className="flex flex-col space-y-2">
-          <NavAddDashboardForm user={props.user} handleSubmit={handleSubmit} />
+          <NavAddDashboardFormHandler user={user} />
         </div>
       </DialogContent>
     </Dialog>
