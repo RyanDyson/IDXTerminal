@@ -19,7 +19,6 @@ export const userRouter = createTRPCRouter({
           clerkId: input.clerkId,
           email: input.email,
           name: input.username,
-          preferences: defaultPreferences,
           profilePicUrl: input.imageUrl,
         },
       });

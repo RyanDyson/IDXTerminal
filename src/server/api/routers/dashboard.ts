@@ -45,7 +45,21 @@ export const dashboardRouter = createTRPCRouter({
           id: input.dashBoardId,
         },
         select: {
-          blocks: true,
+          Tabs: true,
+        },
+      });
+    }),
+
+  deleteDashboard: publicProcedure
+    .input(
+      z.object({
+        dashboardId: z.string(),
+      }),
+    )
+    .mutation(async ({ input, ctx }) => {
+      return ctx.db.dashboard.delete({
+        where: {
+          id: input.dashboardId,
         },
       });
     }),
