@@ -1,7 +1,6 @@
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
-import defaultPreferences from "~/../types/defaultPreferences.json";
 
 export const userRouter = createTRPCRouter({
   createUser: publicProcedure

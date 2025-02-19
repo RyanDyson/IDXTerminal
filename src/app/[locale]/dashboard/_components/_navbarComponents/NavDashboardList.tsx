@@ -4,7 +4,7 @@ import { useSidebar } from "~/components/ui/sidebar";
 import { SidebarGroup, SidebarGroupLabel } from "~/components/ui/sidebar";
 import { DashBoardItem } from "./NavDashboardItem";
 import { NavAddDashboard } from "./NavAddDashboard";
-import { type User, Dashboard } from "@prisma/client";
+import { type User, type Dashboard } from "@prisma/client";
 import { IoList } from "react-icons/io5";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -31,8 +31,8 @@ export function NavDashboardList({ user, dashboards }: props) {
             <p>Dashboards</p>
             <NavAddDashboard user={user} />
           </SidebarGroupLabel>
-          <div className="flex w-full flex-col items-center space-y-2 rounded-md bg-stone-950 p-2 text-sm text-white">
-            {dashboards.map((item, index) => (
+          <div className="flex w-full flex-col items-center space-y-2 divide-y divide-stone-700 rounded-md p-2 text-sm text-white">
+            {dashboardsList.map((item, index) => (
               <DashBoardItem key={index} dashboard={item} />
             ))}
           </div>

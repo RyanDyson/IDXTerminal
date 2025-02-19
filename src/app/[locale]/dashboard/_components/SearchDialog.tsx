@@ -38,7 +38,7 @@ export function SearchDialog() {
       <DialogTrigger>
         <NavSearch />
       </DialogTrigger>
-      <DialogContent className="flex max-w-min flex-col gap-y-0 space-y-0">
+      <DialogContent className="flex max-w-min flex-col justify-between gap-y-0 space-y-0 rounded-md border-stone-700 bg-stone-950/50 text-stone-50 backdrop-blur-lg">
         <DialogHeader className="flex w-full flex-col items-center">
           <DialogTitle>
             <DisplayFont className="text-2xl">Search</DisplayFont>

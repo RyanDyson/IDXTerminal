@@ -39,9 +39,9 @@ export function BlocksList() {
           ))}
         </div>
       </div>
-      <div className="fixed bottom-8 right-8 flex items-center justify-center gap-x-2 rounded-md border border-stone-600 bg-stone-900 p-2">
+      <div className="fixed bottom-10 right-10 flex items-center justify-center gap-x-2 rounded-md border bg-stone-700 p-2 ps-4">
         <p className="text-sm">{numSelected} selected</p>
-        <Button>Add to dashboard 1</Button>
+        <Button variant={"secondary"}>Add to dashboard 1</Button>
       </div>
     </div>
   );
