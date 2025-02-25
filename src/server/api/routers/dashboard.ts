@@ -63,4 +63,25 @@ export const dashboardRouter = createTRPCRouter({
         },
       });
     }),
+
+  isDashboardOwner: publicProcedure
+    .input(
+      z.object({
+        userId: z.string(),
+        dashboardId: z.string(),
+      }),
+    )
+    .mutation(async ({ input, ctx }) => {
+      const dashboard = await ctx.db.dashboard.findUnique({
+        where: {
+          id: input.dashboardId,
+        },
+      });
+
+      if (!dashboard) {
+        return false;
+      }
+
+      return dashboard.userId === input.userId;
+    }),
 });

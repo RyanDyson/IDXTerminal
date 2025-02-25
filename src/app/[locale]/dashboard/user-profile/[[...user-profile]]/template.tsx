@@ -6,8 +6,13 @@ const menuItems = [
   },
   {
     label: "Billing",
+    href: "/dashboard/user-profile/preferences",
+  },
+  {
+    label: "Billing",
     href: "/dashboard/user-profile/billing",
   },
+
   {
     label: "Notifications",
     href: "/dashboard/user-profile/notifications",

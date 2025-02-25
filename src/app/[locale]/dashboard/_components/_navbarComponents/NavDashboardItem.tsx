@@ -2,35 +2,17 @@
 
 import { type Dashboard } from "@prisma/client";
 import { Link } from "~/i18n/routing";
-import { usePathname } from "~/i18n/routing";
 
 type DashBoardItemProps = {
   dashboard: Dashboard;
 };
 
-const generateDashboardsParams = ({
-  dashboard,
-  currentPathname,
-}: {
-  dashboard: Dashboard;
-  currentPathname: string;
-}) => {
-  const params = dashboard.id;
-  return currentPathname + "/user-dashboard/" + params;
-};
-
 export const DashBoardItem = (props: DashBoardItemProps) => {
-  const { name, equity, notification } = props.dashboard;
-  const currentPath = usePathname();
-
-  const link = generateDashboardsParams({
-    dashboard: props.dashboard,
-    currentPathname: currentPath,
-  });
+  const { name, equity, notification, id } = props.dashboard;
 
   return (
     <Link
-      href={link}
+      href={"/dashboard/user-dashboard/" + id}
       className="flex w-full items-center justify-between space-x-2 bg-stone-900 p-2 px-2 text-xs text-white transition-colors hover:bg-stone-800"
     >
       <p>{name}</p>
