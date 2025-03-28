@@ -8,8 +8,8 @@ const prisma = new PrismaClient();
 export const auth = betterAuth({
   socialProviders: {
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
     },
   },
   database: prismaAdapter(prisma, {
@@ -18,7 +18,7 @@ export const auth = betterAuth({
   plugins: [
     magicLink({
       sendMagicLink: async ({ email, token, url }, request) => {
-        api.user.createUser({
+        await api.user.createUser({
           email: email,
         });
       },

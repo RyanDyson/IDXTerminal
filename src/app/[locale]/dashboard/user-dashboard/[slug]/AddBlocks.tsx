@@ -1,10 +1,4 @@
-import {
-  Dialog,
-  DialogHeader,
-  DialogTrigger,
-  DialogTitle,
-  DialogContent,
-} from "~/components/ui/dialog";
+import { Dialog, DialogTrigger, DialogContent } from "~/components/ui/dialog";
 import { FaPlus } from "react-icons/fa6";
 
 export function AddBlocks() {

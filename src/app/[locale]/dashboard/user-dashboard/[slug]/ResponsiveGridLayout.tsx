@@ -84,6 +84,7 @@ const initialLayout: LayoutItem[] = [
 
 export function ResponsiveGridLayout({ blocks }: props) {
   const [layout, setLayout] = useState(initialLayout);
+  console.log(blocks);
 
   const addNewBlock = () => {
     const newBlock = {
