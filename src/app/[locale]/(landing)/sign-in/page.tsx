@@ -15,5 +15,10 @@ export default function SignUpPage() {
     resetButton: t("resetButton"),
   };
 
-  return <SignInForm translation={translations} />;
+  return (
+    <div className="flex h-screen w-screen items-center justify-center px-16 py-8">
+      <SignInForm translation={translations} />
+      {/* <SignInForm translation={translations} /> */}
+    </div>
+  );
 }
