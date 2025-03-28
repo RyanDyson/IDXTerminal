@@ -17,6 +17,7 @@ export const dashboardRouter = createTRPCRouter({
           userId: input.userId,
           name: input.name,
           equity: input.equity,
+          accountId: "default-account-id", // Replace with appropriate logic to set accountId
         },
       });
     }),

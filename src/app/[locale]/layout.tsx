@@ -49,13 +49,7 @@ export default async function LocaleLayout(props: {
         >
           <NextIntlClientProvider locale={locale} messages={messages}>
             <TRPCReactProvider>
-              <ClerkProvider>
-                <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-stone-800 text-center md:hidden">
-                  Current device is not supported. Please use a tablet, laptop,
-                  or desktop.
-                </div>
-                {children}
-              </ClerkProvider>
+              <ClerkProvider>{children}</ClerkProvider>
             </TRPCReactProvider>
           </NextIntlClientProvider>
         </ThemeProvider>

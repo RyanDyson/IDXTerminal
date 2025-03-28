@@ -1,5 +1,4 @@
 import { DisplayFont } from "~/app/[locale]/(landing)/_components/DisplayFont";
-import { Button } from "~/components/ui/button";
 
 export function EmptyDashboard() {
   return (
