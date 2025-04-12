@@ -1,9 +1,9 @@
-import { ResponsiveGridLayout } from "./ResponsiveGridLayout";
-import { TabList } from "./TabList";
-import { api } from "~/trpc/server";
+import { ResponsiveGridLayout } from "./components/ResponsiveGridLayout";
+import { TabList } from "./components/TabList";
 import { currentUser } from "@clerk/nextjs/server";
 import { Skeleton } from "~/components/ui/skeleton";
 import { redirect } from "~/i18n/routing";
+import { api } from "~/trpc/server";
 
 export default async function Page({
   params,
@@ -20,12 +20,10 @@ export default async function Page({
   const dashboardId = (await params).slug;
 
   if (!user) {
-    console.log("user error");
     return <Skeleton className="w-f ull flex h-full flex-col space-y-2 px-4" />;
   }
 
   if (!dashboardId) {
-    console.log("dashboard error", dashboardId);
     return (
       <div className="flex h-full w-full flex-col space-y-2 px-4">
         <Skeleton />
@@ -39,22 +37,24 @@ export default async function Page({
   });
 
   if (!show) {
-    console.log("owner error");
     return (
       <div className="flex h-full w-full flex-col space-y-2 px-4">
         ACCESS DENIED. You are not the owner of this dashboard
       </div>
     );
   }
-
-  const dashboardTabs = await api.tabs.getTabsByDashboardId({ dashboardId });
-  console.log(dashboardTabs);
+  const dashboardData = await api.dashboard.displayDashboard({
+    dashBoardId: dashboardId,
+  });
 
   return (
     <div className="flex h-full w-full flex-col space-y-2 px-4">
-      <TabList tabs={dashboardTabs} dashboardId={dashboardId} />
+      <TabList dashboardId={dashboardId} />
       <div className="h-full w-full flex-grow overflow-y-scroll rounded-md bg-stone-900">
-        <ResponsiveGridLayout blocks={[]} />
+        <ResponsiveGridLayout
+          blocks={dashboardData?.Tabs.flatMap((tab) => tab.blocks) ?? []}
+          tabId={dashboardData?.Tabs[0]?.id ?? ""}
+        />
       </div>
     </div>
   );

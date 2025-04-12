@@ -55,7 +55,6 @@ export const Notification = <T,>({
   const { ref, inView } = useInView();
   const [isOpen, setIsOpen] = useState(false);
   const [isButtonActive, setIsButtonActive] = useState(false);
-  console.log(isButtonActive);
 
   const handleOpenChange = (open: boolean) => {
     if (!open && isOpen) {

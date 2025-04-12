@@ -86,7 +86,7 @@ export function FeatureCard() {
       </DisplayFont>
       <div
         ref={cardsRef}
-        className="cards flex w-fit max-w-[916px] flex-col flex-wrap items-center justify-center gap-1 rounded-xl bg-stone-900 p-1 md:flex-row"
+        className="cards grid w-max grid-cols-1 justify-center gap-1 rounded-xl bg-stone-900 p-1 sm:grid-cols-2 lg:grid-cols-3"
       >
         {featuresList.map((feature, index) => (
           <CustomCard key={index} {...feature} />

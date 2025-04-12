@@ -5,16 +5,21 @@ import { cn } from "~/lib/utils";
 import { useState } from "react";
 import { AddTabs } from "./AddTabs";
 import { useEffect } from "react";
+import { api } from "~/trpc/react";
+
 type Props = {
-  tabs: Tabs[];
   dashboardId: string;
 };
 
-export function TabList({ tabs, dashboardId }: Props) {
-  const [tabList, setTabs] = useState(tabs);
+export function TabList({ dashboardId }: Props) {
+  const [tabList, setTabs] = useState<Tabs[]>([]);
+  const { data: tabs, refetch } = api.tabs.getTabsByDashboardId.useQuery({
+    dashboardId: dashboardId,
+  });
 
   useEffect(() => {
-    setTabs(tabs);
+    const sortedTabs = tabs?.sort((a, b) => a.order - b.order);
+    setTabs(sortedTabs ?? []);
   }, [tabs]);
 
   const TabButton = ({ tab }: { tab: (typeof tabList)[number] }) => {

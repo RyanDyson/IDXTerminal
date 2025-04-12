@@ -20,7 +20,6 @@ export function NavDashboardList({ user, dashboards }: props) {
 
   useEffect(() => {
     setDashboards(dashboards);
-    console.log("Dashboards updated:", dashboards);
   }, [dashboards]);
 
   return (

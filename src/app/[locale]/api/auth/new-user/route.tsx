@@ -3,7 +3,6 @@ import { currentUser, auth } from "@clerk/nextjs/server";
 import { api } from "~/trpc/server";
 
 export async function GET() {
-  console.log("access");
   const { userId } = await auth();
 
   if (!userId) {

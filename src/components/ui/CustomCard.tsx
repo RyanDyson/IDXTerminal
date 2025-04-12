@@ -19,7 +19,7 @@ export const CustomCard = ({
   const imageSrc = image ?? placeholder;
 
   return (
-    <div className="card relative w-full items-end lg:h-[250px] lg:w-[300px]">
+    <div className="card relative h-[250px] w-[300px] items-end">
       <div className="card-content relative z-20 flex flex-row items-end justify-between space-x-2 bg-stone-900 p-8 text-stone-50">
         <Image
           src={imageSrc}

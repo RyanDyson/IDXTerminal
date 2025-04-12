@@ -7,6 +7,7 @@ import {
   CreditCard,
   LogOut,
   Sparkles,
+  Home,
 } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
@@ -115,6 +116,14 @@ export function NavUser(props: NavUserProps) {
                   Sign Out
                 </div>
               </SignOutButton>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={"/"}>
+                <div className="flex cursor-pointer items-center gap-2 text-left text-xs">
+                  <Home size={15} />
+                  Go to Landing Page
+                </div>
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem className="px-0">
               <LocaleSwitcher dashboard={true} />

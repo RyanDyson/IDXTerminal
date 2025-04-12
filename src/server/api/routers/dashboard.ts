@@ -17,6 +17,12 @@ export const dashboardRouter = createTRPCRouter({
           userId: input.userId,
           name: input.name,
           equity: input.equity,
+          Tabs: {
+            create: {
+              name: "Home",
+              order: 1,
+            },
+          },
         },
       });
     }),
@@ -45,7 +51,17 @@ export const dashboardRouter = createTRPCRouter({
           id: input.dashBoardId,
         },
         select: {
-          Tabs: true,
+          Tabs: {
+            select: {
+              id: true,
+              name: true,
+              dashboardId: true,
+              createdAt: true,
+              updatedAt: true,
+              blocks: true,
+              order: true,
+            },
+          },
         },
       });
     }),

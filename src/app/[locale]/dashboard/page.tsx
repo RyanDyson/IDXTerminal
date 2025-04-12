@@ -1,5 +1,6 @@
 import { DisplayFont } from "../(landing)/_components/DisplayFont";
 import { HydrateClient } from "~/trpc/server";
+import { Dialog, DialogTrigger } from "~/components/ui/dialog";
 
 export default function DashboardLandingPage() {
   return (

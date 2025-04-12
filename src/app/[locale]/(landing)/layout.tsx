@@ -1,4 +1,5 @@
 import { Navbar } from "./_components/Navbar";
+import { Footer } from "./_components/Footer";
 
 export default async function LandingLayout({
   children,
@@ -6,9 +7,10 @@ export default async function LandingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="hidden md:block">
+    <div>
       <Navbar />
       {children}
+      <Footer />
     </div>
   );
 }
